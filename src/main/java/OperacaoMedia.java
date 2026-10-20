@@ -1,33 +1,30 @@
 import java.util.Scanner;
-//programa para calucular média;
+
 public class OperacaoMedia {
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
-        //Informando a qnt de notas do aluno;
-        System.out.println("Informe o número de notas: ");
+        System.out.println("Digite o número de notas: ");
         int num = Integer.parseInt(leitor.nextLine());
-        //Criando um array de notas;
-        double [] Notas =  new double[num];
+        double Notas[] = new double[num];
         for (int i = 0; i < num; i++){
             System.out.println("Digite a nota ["+i+"]");
-            Notas[i] = leitor.nextDouble();
+            Notas[i] = Double.parseDouble(leitor.nextLine());
         }
-        //Chamando o metodo;
-        double media = CalculaMedia(Notas);
-        System.out.printf("A media do aluno foi %.1f",media);
+        double media = calcularMedia(Notas);
+        System.out.printf("A media é %.1f", media);
 
         leitor.close();
     }
-    //Metodo para calcular a media;
-    public static double CalculaMedia(double [] notas ){
-        if (notas.length==0){
+
+    public static double calcularMedia(double [] numeros){
+        if (numeros.length == 0){
             return 0;
         } else {
             double soma = 0.0;
-            for (int i = 0; i < notas.length; i++){
-                soma += notas[i];
+            for (int i = 0; i < numeros.length; i++) {
+                soma+= numeros[i];
             }
-            return soma/notas.length;
+            return soma/numeros.length;
 
         }
     }
